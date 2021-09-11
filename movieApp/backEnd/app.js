@@ -1,26 +1,29 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+ /**
+ * @ author Jyoti R. Khatri
+ * @ since Sept 10 2021
+ */
+ 
+ const express = require('express');
+ //const cors = require('cors');
+ 
+ const movieRouter = require('./routes/movieRouter')
+ const userRouter = require('./routes/usersRouter')
+ const mongoConnect = require('./utils/database').mongoConnect;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
+const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
-app.use(logger('dev'));
+//app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+
+app.use('/movies', movieRouter);
+app.use('/users', userRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -36,6 +39,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
 
-module.exports = app;
+});
+mongoConnect(() =>{
+  app.listen(4040, () => console.log('Listening to 4040'));
+})
+
+
