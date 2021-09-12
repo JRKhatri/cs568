@@ -26,8 +26,7 @@ exports.findMovieById = async (req, res, next) =>{
 exports.addMovie = async (req, res, next) => {
    try{ 
     const body = req.body;
-   
-    const savedMovie = await new MovieCollection(body).save();
+    const savedMovie = await MovieCollection(body).save();
     console.log(savedMovie)
     res.status(201).json(savedMovie)
    
