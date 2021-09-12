@@ -8,6 +8,7 @@
  
  const movieRouter = require('./routes/movieRouter')
  const userRouter = require('./routes/usersRouter')
+ const authRouter = require('./routes/authRouter')
  const mongoConnect = require('./utils/database').mongoConnect;
 
 const app = express();
@@ -20,6 +21,7 @@ const app = express();
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
 
+app.use(authRouter);
 app.use('/movies', movieRouter);
 app.use('/users', userRouter)
 

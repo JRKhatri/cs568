@@ -51,6 +51,7 @@ exports.updateMovie = async(req, res, next) => {
 
 }
 exports.deleteMovie = async (req, res,next) =>{
+    console.log("I am inside deleteMovies")
     try{
     const deletedMovie = await MovieCollection.deleteOne({movieId: req.params.mId})
     res.status(200).json(deletedMovie)
