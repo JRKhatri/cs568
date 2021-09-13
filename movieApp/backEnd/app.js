@@ -4,7 +4,7 @@
  */
  
  const express = require('express');
- //const cors = require('cors');
+ const cors = require('cors');
  
  const movieRouter = require('./routes/movieRouter')
  const userRouter = require('./routes/usersRouter')
@@ -17,11 +17,11 @@ const app = express();
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-//app.use(cors());
+app.use(cors());
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
 
-app.use(authRouter);
+//app.use(authRouter);
 app.use('/movies', movieRouter);
 app.use('/users', userRouter)
 

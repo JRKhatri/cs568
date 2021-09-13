@@ -19,7 +19,7 @@ const mongoConnect = (callback) => {
         console.log('Successfully connected to mongodb Server')
         callback();
     }).catch(error => {
-        handelError(error)
+        handleError(error)
     })
 }
 
