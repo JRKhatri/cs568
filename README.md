@@ -4,3 +4,4 @@
 
 1. [w2d5](./movieApp/backEnd)
 2. [w2d6](./movieApp/frontEnd)
+3. [workshopII](./workshop2)
