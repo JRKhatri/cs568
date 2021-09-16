@@ -4,7 +4,7 @@ import React from "react";
 export default class CreateReview extends React.Component{
     state = {
         review : {
-            id:0,
+            rId:0,
             title:"",
             description:""
         }, 
@@ -44,18 +44,26 @@ export default class CreateReview extends React.Component{
         })
 
     }
+    updateReviewBtnClicled(id){
+        this.props.history.push('/update-review/'+id)
+
+    }
 
     render(){
          
         return(
             <div>
                 <h3>Create Review</h3>
-                Id :<input type = "number" value ={this.state.review.id} name = "id" onChange={(event) => {this.propertyChanged(event)}}/>
+                Id :<input type = "number" value ={this.state.review.rId} name = "rId" onChange={(event) => {this.propertyChanged(event)}}/>
                 title :<input type="text" value={this.state.review.title} name="title" onChange={(event) => { this.propertyChanged(event) }} />
                 description :<input type="text" value={this.state.review.description} name="description" onChange={(event) => { this.propertyChanged(event) }} />
                 
                 
                 <button onClick={()=>{this.createButtonClicled(this.props.id)}} >Apply</button>
+                <div>
+                
+
+                </div>
             </div>
 
         )

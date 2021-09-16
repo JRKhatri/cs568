@@ -8,6 +8,7 @@ import ProductDetails from './ProductDetails';
 import UpdateProduct from './UpdateProduct';
 import CreateReview from './CreateReview'
 import CreateProduct from './CreateProduct';
+import ReviewUpdate from './ReviewUpdate'
 
 
 class App extends React.Component {
@@ -50,6 +51,7 @@ class App extends React.Component {
 					<Route path='/create-product' component={CreateProduct} />
 
 					<Route path='/update-product/:id' component={UpdateProduct} />
+					<Route path ='/products/:pId/review/:rId' component ={ReviewUpdate} />
 
 				</div>
 			</BrowserRouter>

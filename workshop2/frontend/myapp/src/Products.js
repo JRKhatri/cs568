@@ -11,6 +11,7 @@ export default class Products extends React.Component{
         //axios.get('/products').then(response => { //@without token
             let copy ={...this.state}
             copy.products = response.data;
+            console.log(response.data)
             this.setState(copy)
         })
     }
@@ -32,6 +33,9 @@ export default class Products extends React.Component{
         })
         .then(response =>{
             console.log(response.data)
+            axios.get('/products', { headers :{ Authorization :localStorage.getItem('token')}}).then(data =>{
+                this.setState({products : data.data})
+            })
         }
             )
 
