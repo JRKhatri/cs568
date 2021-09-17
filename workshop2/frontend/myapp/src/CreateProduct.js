@@ -40,7 +40,7 @@ export default class CreateProduct extends React.Component{
 
     render(){
     return(
-        <div>
+        <div className="CreateProduct">
                 <h3>Create Product</h3>
                 Id :<input type = "number" value ={this.state.product.id} name = "id" onChange={(event) => {this.propertyChanged(event)}}/>
                 Name :<input type="text" value={this.state.product.name} name="name" onChange={(event) => { this.propertyChanged(event) }} />

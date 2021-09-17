@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(210, 255, 196);
 }
 
 .App-logo {
@@ -27,6 +28,29 @@
 .App-link {
   color: #61dafb;
 }
+.Login {
+  text-align: center;
+  background-color: rgb(255, 196, 245);
+}
+.Product {
+  text-align: center;
+  background-color: rgb(255, 208, 196);
+}
+.Review {
+ margin-top: 1mm;
+ margin-left: 13mm;
+ margin-right: 25mm;
+  text-align: left;
+  background-color: rgb(202, 196, 255);
+}
+.CreateProduct {
+  margin-top: 10mm;
+  border-color: rgb(1, 20, 14);
+  padding-left: 1mm;
+  margin-left: 1mm;
+   text-align: left;
+   background-color: rgb(207, 34, 164);
+ }
 
 @keyframes App-logo-spin {
   from {

@@ -63,7 +63,6 @@ export default class Products extends React.Component{
             <div><h2>Products</h2></div>
             {displayAllProducts}
         </div>
-            
            
         )
     }

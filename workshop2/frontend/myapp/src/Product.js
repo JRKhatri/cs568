@@ -1,6 +1,6 @@
 export default function Product(props){
     return(
-        <div>
+        <div className="Product">
             <p>{props.name}</p>
             <p>{props.price}</p>
             <button onClick ={props.showDetailClicked}>Details</button>

@@ -16,20 +16,7 @@ export default class CreateReview extends React.Component{
         this.setState({ review: copy })
     }
 
-    // createReview() {
-    //     axios.get('/products/' + this.props.match.params.id + '/reviews',this.state.review, {
-    //         headers: {
-    //             Authorization: localStorage.getItem('token')
-    //         }
-    //     })
-    //         .then(response => {
-    //             let copy = { ...this.state }
-    //             copy.product = response.data
-    //             this.setState(copy)
-
-    //         })
-
-    // }
+   
 
     createButtonClicled(id) {
         console.log(id)

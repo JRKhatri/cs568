@@ -9,11 +9,23 @@ import UpdateProduct from './UpdateProduct';
 import CreateReview from './CreateReview'
 import CreateProduct from './CreateProduct';
 import ReviewUpdate from './ReviewUpdate'
+import Register from './Register';
+
+export const MyContext = React.createContext();
 
 
 class App extends React.Component {
+
+	loginFun = () => {
+		let copy = { ...this.state }
+		copy.isUserLoggedIn = true;
+		this.setState(copy)
+	}
+
 	state = {
-		isUserLoggedIn: true,
+		isUserLoggedIn: false,
+		login: this.loginFun
+
 	}
 
 	componentDidUpdate() {
@@ -24,7 +36,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div>
+				<div className="App">
+					{this.state.isUserLoggedIn ? null : <MyContext.Provider value={this.state}>
+						<Login></Login>
+					</MyContext.Provider>
+					}
+
 					<ul>
 						{this.state.isUserLoggedIn ?
 							<li>
@@ -35,24 +52,38 @@ class App extends React.Component {
 								<Link to='/create-product'>Create Products</Link>
 							</li>
 							: null}
-						<li>
-							<Link to='/login'>Login</Link>
-						</li>
+						{/* {this.state.isUserLoggedIn ?
+							<li>
+								<Link to='/login'>Login</Link>
+							</li> : null} */}
+
 						<li>
 							<Link to='/register'>Register</Link>
 						</li>
 					</ul>
 
-					<Route path='/all-products' component={Products} />
 
-					<Route path='/login' component={Login} />
-					<Route path='/productdetail/:id' component={ProductDetails} />
-					{/* <Route path='/productdetail/review' component={CreateReview} /> */}
-					<Route path='/create-product' component={CreateProduct} />
+					{/* <Route path='/login' component={Login} /> */}
+					<Route path='/register' component={Register} />
 
-					<Route path='/update-product/:id' component={UpdateProduct} />
-					<Route path ='/products/:pId/review/:rId' component ={ReviewUpdate} />
+					{this.state.isUserLoggedIn ? <Route path='/all-products' component={Products} />
+						: null}
 
+					{this.state.isUserLoggedIn ? <Route path='/productdetail/:id' component={ProductDetails} />
+						: null}
+
+					
+
+						{/* <Route path='/productdetail/review' component={CreateReview} /> */}
+
+						{this.state.isUserLoggedIn ? <Route path='/create-product' component={CreateProduct} />
+							: null}
+
+						{this.state.isUserLoggedIn ? <Route path='/update-product/:id' component={UpdateProduct} />
+							: null}
+
+						{this.state.isUserLoggedIn ? <Route path='/products/:pId/review/:rId' component={ReviewUpdate} />
+							: null}
 				</div>
 			</BrowserRouter>
 
